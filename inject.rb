@@ -1,12 +1,18 @@
 module Enumerable
   def my_map(&block)
-    self.inject([]) {|arr,i| arr << block.call(i)}
+    self.inject([]) {|arr,i| 
+      arr << block.call(i)
+    }
   end
   def my_select(&block)
-    self.inject([]) {|arr,i| if block.call(i) then arr << i else arr end}
+    self.inject([]) {|arr,i| 
+      if block.call(i) then arr << i else arr end
+    }
   end
   def my_reject(&block)
-    self.inject([]) {|arr,i| if block.call(i) then arr else arr << i end}
+    self.inject([]) {|arr,i| 
+      if block.call(i) then arr else arr << i end
+    }
   end
   def my_sum
     self.inject(0) {|total,i| total + i}
