@@ -1,13 +1,4 @@
 class String
-  alias old_compare <=>
-  
-  def <=>(other)
-    a = self.downcase
-    b = other.downcase
-    
-    a.old_compare(b)
-  end
-  
   def strstr(sub)
     _strstr(sub, 0)
   end
