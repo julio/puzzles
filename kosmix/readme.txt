@@ -1,0 +1,7 @@
+- product of 2 very sparse vectors (billion potential positions, only a few positions set)
+   - array, hash, optimized
+- reverse a string
+   - recursive, iterative, one pass
+- replace/search big text for several strings
+   - one pass
+- implement ruby function for Class.find_something_or_the_other

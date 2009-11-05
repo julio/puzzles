@@ -1,25 +1,43 @@
 module Accessor
-  def my_attr_accessor(var_name)
-    puts "inside my_attr_accessor"
-    var = "@#{var_name}"
-    define_method(var_name) do
-      instance_variable_get(var)
+  def self.included(base)
+    base.extend(ClassMethods)
+  end
+
+  module ClassMethods
+    def class_attribute_accessor(var_name)
+      instance_eval %{
+        def #{var_name}
+          @@#{var_name}
+        end
+        def #{var_name}=(new_value)
+          @@#{var_name}=new_value
+        end
+      }
     end
-    define_method("#{var_name}=") do |new_value|
-      STDERR.puts "#{var} => #{new_value}"
-      instance_variable_set(var, new_value)
+    def my_attr_accessor(var_name)
+      class_eval %{
+        def #{var_name}
+          @#{var_name}
+        end
+        def #{var_name}=(new_value)
+          @#{var_name} = new_value
+        end
+      }
     end
   end
+  
 end
 
 class Example
-  extend Accessor
+  include Accessor
   my_attr_accessor :foo
+  class_attribute_accessor :baz
 end
 
+puts "Class attributes:"
+Example.baz = 1
+p Example.baz
+puts "Instance attributes:"
 ex = Example.new
 ex.foo = 99
 p ex.foo
-ex.foo = 1
-ex.foo = 2
-ex.foo = 3
