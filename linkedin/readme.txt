@@ -1,4 +1,0 @@
-- fibonacci
-  - recursive, iterative, no hash-based caching
-- throttle requests
-  - database, memcached
