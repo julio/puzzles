@@ -12,6 +12,7 @@ class Array
     right = self[mid, self.size]
     merge(left.mergesort, right.mergesort)
   end
+  
   def merge(left, right)
     sorted = []
     until left.empty? or right.empty?

@@ -6,21 +6,17 @@ def get_random_element(l)
   raise "Bad" if l.nil?
 
   n = rand(1_000_000)
-  index = 0
-  len = 0
+  index, len = 0, 0
   while true
-    if n == index
-      return l.current
+    return l.current if n == index
+    if l.has_next?
+      l.advance
+      len += 1
+      index += 1 
     else
-      if l.has_next?
-        l.advance
-        len += 1
-        index += 1 
-      else
-        n = n % len
-        l.reset
-        index = 0
-      end
+      n = n % len
+      l.reset
+      index = 0
     end
   end
 end
