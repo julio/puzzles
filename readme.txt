@@ -1,0 +1,4 @@
+- read words from file and sort by number of occurrences
+- how many servers for 5,000,000 hits over 24 hours, half second each
+- sort hash by value
+- how to hash tables work
