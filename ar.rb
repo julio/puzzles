@@ -5,15 +5,15 @@
 # $ irb
 # >> require "ar"
 # => expect results
- 
+
 require "rubygems"
 require "mysql"
 require "activerecord"
-connection = ActiveRecord::Base.establish_connection(
+ActiveRecord::Base.establish_connection(
   :username => "root",
   :password => "",
   :adapter  => "mysql",
-  :database => "microplace_dev",
+  :database => "database_dev",
   :host     => "localhost")
 
 models = %w[User Investment Interest]
