@@ -23,6 +23,8 @@ class HIndexTest < Test::Unit::TestCase
 
   def test_many
     assert_equal 4, hindex([1,4,1,4,2,1,3,5,6])
+    assert_equal 2, hindex([1,2,3,4])
+    assert_equal 3, hindex([1,2,3,4,5])
   end
 end
 
