@@ -1,6 +1,6 @@
 import unittest
 
-def count_bits(n):
+def count_bits(n: int) -> int:
   count = 0
   while n > 0:
     count += n & 1 > 0
@@ -8,6 +8,9 @@ def count_bits(n):
   return count
 
 class BitCountTest(unittest.TestCase):
+    def test_0_bits(self):
+        self.assertEqual(0, count_bits(0))
+
     def test_1_bit(self):
         self.assertEqual(1, count_bits(1))
         self.assertEqual(1, count_bits(2))
