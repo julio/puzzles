@@ -6,7 +6,8 @@ class BitCounter
       count += 1 if n & 1 == 1
       n >>= 1
       count
-    end  end
+    end
+  end
 
   def self.power_of_two?(n)
     count(n) == 1
